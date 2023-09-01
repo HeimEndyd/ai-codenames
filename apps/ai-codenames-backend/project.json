@@ -1,0 +1,64 @@
+{
+  "name": "ai-codenames-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ai-codenames-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/ai-codenames-backend",
+        "main": "apps/ai-codenames-backend/src/main.ts",
+        "tsConfig": "apps/ai-codenames-backend/tsconfig.app.json",
+        "assets": ["apps/ai-codenames-backend/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/ai-codenames-backend/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ai-codenames-backend:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ai-codenames-backend:build:development"
+        },
+        "production": {
+          "buildTarget": "ai-codenames-backend:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ai-codenames-backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ai-codenames-backend/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

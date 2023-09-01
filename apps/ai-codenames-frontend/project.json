@@ -52,7 +52,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "ai-codenames-frontend:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/ai-codenames-frontend/proxy.conf.json"
       },
       "configurations": {
         "development": {
