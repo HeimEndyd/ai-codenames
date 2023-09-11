@@ -2,14 +2,18 @@
   "name": "@ai-codenames/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx run-many --parallel --target=serve --projects=ai-codenames-backend,ai-codenames-frontend"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
+    "@nestjs/mongoose": "^10.0.1",
     "@nestjs/platform-express": "^10.0.2",
     "@swc/helpers": "~0.5.0",
     "axios": "^1.0.0",
+    "mongoose": "^7.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
