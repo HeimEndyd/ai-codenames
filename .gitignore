@@ -40,3 +40,6 @@ Thumbs.db
 
 # MongoDB Files
 /mongo-data
+
+# ENV files
+/envs/.backend.env
